@@ -49,6 +49,8 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <div> You can {signInRedux ? `` : `'t`} write comments </div>
+            <p>Email: 111@gmail.com</p>
+            <p>Pasword: 111</p>
           </Route>{' '}
           <Route path="/about" />
           <Route path="/gallery" />
