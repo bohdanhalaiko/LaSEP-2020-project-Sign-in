@@ -1,0 +1,5 @@
+export const SIGN_IN = 'SIGN_IN/SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT/SIGN_OUT';
+export const RECOW_PASS_EMAIL = 'RECOW_PASS_EMAIL';
+export const RECOW_PASS_CODE = 'RECOW_PASS_CODE';
+export const RECOW_PASS_PASSWORD = 'RECOW_PASS_PASSWORD';
