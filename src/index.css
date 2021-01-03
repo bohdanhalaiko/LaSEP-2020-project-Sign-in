@@ -14,3 +14,20 @@ code {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.letter-spasing input {
+  letter-spacing: 25px;
+}
+
+.recovery.send-code {
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.recovery.send-code input {
+  text-align: center;
+}
+/* .MuiInput-underline:after {
+  margin-left: 10px;
+  margin-right: 10px;
+} */

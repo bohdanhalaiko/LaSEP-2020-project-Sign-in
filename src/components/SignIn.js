@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -14,9 +14,9 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { FaFacebookF } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signInAction } from '../redux/action';
 import { IconContext } from 'react-icons';
 
@@ -64,79 +64,77 @@ export default function SignIn() {
   function responseFacebook(response) {
     console.log(response);
   }
-  const renderSignIn = signInRedux && <Redirect to="/" />;
+  if (signInRedux) return <Redirect to="/" />;
 
   return (
-    renderSignIn || (
-      <form onSubmit={handleSignIn}>
-        <h2>Sign in</h2>
-        <TextField
-          required
-          id="standard-required"
-          label="Work email address"
+    <form onSubmit={handleSignIn}>
+      <h2>Sign in</h2>
+      <TextField
+        required
+        label="Work email address"
+        onChange={handleFormValues}
+        name="inputEmail"
+        value={formValues.inputEmail}
+      />
+      <br />
+      <br />
+      <FormControl>
+        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+        <Input
+          name="inputPassword"
+          type={formValues.showPassword ? 'text' : 'password'}
+          value={formValues.inputPassword}
           onChange={handleFormValues}
-          name="inputEmail"
-          value={formValues.inputEmail}
-        />
-        <br />
-        <br />
-        <FormControl>
-          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-          <Input
-            name="inputPassword"
-            id="standard-adornment-password"
-            type={formValues.showPassword ? 'text' : 'password'}
-            value={formValues.inputPassword}
-            onChange={handleFormValues}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  name="showPassword"
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                >
-                  {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-        <br />
-        <br />
-        <FormControlLabel
-          value="end"
-          label="Remember me"
-          labelPlacement="end"
-          control={
-            <Checkbox
-              color="primary"
-              onChange={handleFormValues}
-              name="rememberMe"
-              checked={formValues.rememberMe}
-            />
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                name="showPassword"
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+              >
+                {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            </InputAdornment>
           }
         />
-        <Link className="a" to="/recovery">
-          Forgot password?
-        </Link>
+      </FormControl>
+      <br />
+      <br />
+      <FormControlLabel
+        value="end"
+        label="Remember me"
+        labelPlacement="end"
+        control={
+          <Checkbox
+            color="primary"
+            onChange={handleFormValues}
+            name="rememberMe"
+            checked={formValues.rememberMe}
+          />
+        }
+      />
 
-        <br />
-        <br />
-        <Button variant="contained" color="primary" type="submit">
-          Sign in
-        </Button>
-        <br />
-        <br />
-        <p>or</p>
-        <br />
-        <IconContext.Provider value={{ size: '2em', color: 'dark-blue' }}>
-          <div>
-            <FcGoogle />
-            <FaFacebookF />
-          </div>
-        </IconContext.Provider>
+      <Link className="a" to="/recovery-send-email">
+        Forgot password?
+      </Link>
 
-        {/* <GoogleLogin
+      <br />
+      <br />
+      <Button variant="contained" color="primary" type="submit">
+        Sign in
+      </Button>
+      <br />
+      <br />
+      <p>or</p>
+      <br />
+      <IconContext.Provider value={{ size: '2em', color: 'dark-blue' }}>
+        <div>
+          <FcGoogle />
+          <FaFacebookF />
+        </div>
+      </IconContext.Provider>
+
+      {/* <GoogleLogin
             clientId="_667687022973-4bsuh81gfjge2t96pjhffq4k9ovjfbpv.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
@@ -152,14 +150,13 @@ export default function SignIn() {
             icon="fa-facebook"
             textButton=""
           /> */}
-        <br />
-        <br />
-        <span>Don't have an account yet? </span>
-        <Link className="a" to="/signup">
-          Sign up
-        </Link>
-      </form>
-    )
+      <br />
+      <br />
+      <span>Don't have an account yet? </span>
+      <Link className="a" to="/signup">
+        Sign up
+      </Link>
+    </form>
   );
 }
 

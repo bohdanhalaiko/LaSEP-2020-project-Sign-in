@@ -1,3 +1,5 @@
-export default function SignUp(){
-  return <h2>Sign up</h2>
+import React from 'react';
+
+export default function SignUp() {
+  return <h2>Sign up</h2>;
 }

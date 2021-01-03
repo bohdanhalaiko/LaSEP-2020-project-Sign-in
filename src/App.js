@@ -1,17 +1,19 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
-import RecoveryPassword from './components/RecoveryPassword';
 import SignUp from './components/SignUp';
+import RecoveryPassSendEmail from './components/RecoveryPassSendEmail';
+import RecoveryPassSendCode from './components/RecoveryPassSendCode';
+import RecoveryPassChangePass from './components/RecoveryPassChangePass';
 
 export default function App() {
   // const dispatch = useDispatch();
-  const signInRedux = useSelector((state) => state.authorization.isSignIn);
+  const isSignInRedux = useSelector((state) => state.authorization.isSignIn);
 
-  console.log('rendering: App:', signInRedux);
+  console.log('rendering: App:', isSignInRedux);
   return (
     <Router>
       <div>
@@ -27,20 +29,20 @@ export default function App() {
         <Link className="a" to="/faq">
           FAQ
         </Link>
-        <Link className="a" to="/faq">
+        <Link className="a" to="/contact">
           Contact us
         </Link>
-        {signInRedux || (
+        {isSignInRedux || (
           <Link className="a" to="/signup">
             <button>Sign up</button>
           </Link>
         )}
-        {signInRedux || (
+        {isSignInRedux || (
           <Link className="a" to="/signin">
             <button>Sign in</button>
           </Link>
         )}
-        {signInRedux && (
+        {isSignInRedux && (
           <Link className="a" to="/signout">
             <button>Sign out</button>
           </Link>
@@ -48,18 +50,20 @@ export default function App() {
         <hr />
         <Switch>
           <Route exact path="/">
-            <div> You can {signInRedux ? `` : `'t`} write comments </div>
+            <div> You can{isSignInRedux ? `` : `'t`} write comments </div>
             <p>Email: 111@gmail.com</p>
-            <p>Pasword: 111</p>
-          </Route>{' '}
+            <p>Password: 111</p>
+          </Route>
           <Route path="/about" />
           <Route path="/gallery" />
           <Route path="/faq" />
           <Route path="/contact" />
           <Route path="/signin" component={SignIn} />
-          <Route path="/recovery" component={RecoveryPassword} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signout" component={SignOut} />
+          <Route path="/recovery-send-email" component={RecoveryPassSendEmail} />
+          <Route path="/recovery-send-code" component={RecoveryPassSendCode} />
+          <Route path="/recovery-change-password" component={RecoveryPassChangePass} />
         </Switch>
       </div>
     </Router>

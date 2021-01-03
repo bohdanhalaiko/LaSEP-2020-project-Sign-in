@@ -1,18 +1,16 @@
-import { RECOW_PASS_CODE, RECOW_PASS_EMAIL, RECOW_PASS_PASSWORD } from './types';
+import { RECOW_PASS_CHANGE_PASSWORD, RECOW_PASS_CODE, RECOW_PASS_EMAIL } from './types';
 
-const initialState = 'email';
+const initialState = { email: '', code: '', newPassword: '' };
 
-function recoveryPassReducer(state = initialState, action) {
+export default function recoveryPassReducer(state = initialState, action) {
   switch (action.type) {
     case RECOW_PASS_EMAIL:
-      return 'code';
+      return { ...state, email: action.email };
     case RECOW_PASS_CODE:
-      return 'password';
-    case RECOW_PASS_PASSWORD:
-      return 'email';
+      return { ...state, code: action.code };
+    case RECOW_PASS_CHANGE_PASSWORD:
+      return { ...state, newPassword: action.password };
     default:
       return state;
   }
 }
-
-export default recoveryPassReducer;
