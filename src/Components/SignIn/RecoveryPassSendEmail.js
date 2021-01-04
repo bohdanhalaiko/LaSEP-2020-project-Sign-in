@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BiArrowBack } from 'react-icons/bi';
 import { Redirect } from 'react-router';
-import { recoveryPassEmailAction } from '../redux/action';
+import { recoveryPassEmailAction } from '../../actions/actions';
 
 export default function RecoveryPassSendEmail() {
   const dispatch = useDispatch();

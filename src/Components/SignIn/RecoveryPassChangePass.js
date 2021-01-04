@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import { recoveryPassCodeAction, recoveryPassResentCodeAction } from '../redux/action';
+import { recoveryPassCodeAction, recoveryPassResentCodeAction } from '../../actions/actions';
 import { InputChangePassword } from './InputChangePassword';
 
 export default function RecoveryPassChangePass() {

@@ -2,12 +2,13 @@ import './App.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SignIn from './components/SignIn';
-import SignOut from './components/SignOut';
-import SignUp from './components/SignUp';
-import RecoveryPassSendEmail from './components/RecoveryPassSendEmail';
-import RecoveryPassSendCode from './components/RecoveryPassSendCode';
-import RecoveryPassChangePass from './components/RecoveryPassChangePass';
+import SignIn from './Pages/SignIn';
+import SignOut from './Pages/SignOut';
+import SignUp from './Pages/SignUp';
+import RecoveryPassSendEmail from './Components/SignIn/RecoveryPassSendEmail';
+import RecoveryPassSendCode from './Components/SignIn/RecoveryPassSendCode';
+import RecoveryPassChangePass from './Components/SignIn/RecoveryPassChangePass';
+import MenuAccount from './Pages/MenuAccount';
 
 export default function App() {
   // const dispatch = useDispatch();
@@ -20,11 +21,11 @@ export default function App() {
         <Link className="a" to="/">
           InpLAce
         </Link>
+        <Link className="a" to="/gallery">
+          Video gallery
+        </Link>
         <Link className="a" to="/about">
           About us
-        </Link>
-        <Link className="a" to="/gallery">
-          Gallery
         </Link>
         <Link className="a" to="/faq">
           FAQ
@@ -42,11 +43,7 @@ export default function App() {
             <button>Sign in</button>
           </Link>
         )}
-        {isSignInRedux && (
-          <Link className="a" to="/signout">
-            <button>Sign out</button>
-          </Link>
-        )}
+        {isSignInRedux && <MenuAccount />}
         <hr />
         <Switch>
           <Route exact path="/">
@@ -64,6 +61,7 @@ export default function App() {
           <Route path="/recovery-send-email" component={RecoveryPassSendEmail} />
           <Route path="/recovery-send-code" component={RecoveryPassSendCode} />
           <Route path="/recovery-change-password" component={RecoveryPassChangePass} />
+          <Route path="/menu-account" component={MenuAccount} />
         </Switch>
       </div>
     </Router>

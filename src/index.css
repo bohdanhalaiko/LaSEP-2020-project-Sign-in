@@ -27,7 +27,8 @@ code {
 .recovery.send-code input {
   text-align: center;
 }
-/* .MuiInput-underline:after {
-  margin-left: 10px;
-  margin-right: 10px;
-} */
+
+.menu-account{
+  display: inline-block;
+}
+

@@ -17,7 +17,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { signInAction } from '../redux/action';
+import { signInAction } from '../actions/actions';
 import { IconContext } from 'react-icons';
 
 export default function SignIn() {

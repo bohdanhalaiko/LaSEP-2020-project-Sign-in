@@ -7,7 +7,7 @@ import {
   inputSendCodeResetAction,
   recoveryPassCodeAction,
   recoveryPassResentCodeAction,
-} from '../redux/action';
+} from '../../actions/actions';
 import { InputSendCode } from './InputSendCode';
 
 export default function RecoveryPassCode() {

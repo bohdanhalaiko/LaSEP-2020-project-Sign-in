@@ -1,4 +1,4 @@
-import { RECOW_PASS_CHANGE_PASSWORD, RECOW_PASS_CODE, RECOW_PASS_EMAIL } from './types';
+import { RECOW_PASS_CHANGE_PASSWORD, RECOW_PASS_CODE, RECOW_PASS_EMAIL } from '../constants/types';
 
 const initialState = { email: '', code: '', newPassword: '' };
 

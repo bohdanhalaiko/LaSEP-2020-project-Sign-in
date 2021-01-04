@@ -1,4 +1,4 @@
-import { INPUT_SENT_CODE, INPUT_SENT_CODE_RESET } from './types';
+import { INPUT_SENT_CODE, INPUT_SENT_CODE_RESET } from '../constants/types';
 
 const initialState = { code: ['', '', '', '', ''] };
 

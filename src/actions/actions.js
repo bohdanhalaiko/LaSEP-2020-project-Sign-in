@@ -6,7 +6,7 @@ import {
   RECOW_PASS_EMAIL,
   SIGN_IN,
   SIGN_OUT,
-} from './types';
+} from '../constants/types';
 
 export function signInAction(email) {
   // return {
