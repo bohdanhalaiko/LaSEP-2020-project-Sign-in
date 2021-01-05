@@ -9,8 +9,9 @@ import RecoveryPassSendEmail from './Components/SignIn/RecoveryPassSendEmail';
 import RecoveryPassSendCode from './Components/SignIn/RecoveryPassSendCode';
 import RecoveryPassChangePass from './Components/SignIn/RecoveryPassChangePass';
 import MenuAccount from './Components/MenuHeader/MenuAccount';
-import { Box, Button } from '@material-ui/core';
 import MenuHeader from './Pages/MenuHeader';
+import AccountSettings from './Pages/AccountSettings';
+import { Container } from '@material-ui/core';
 
 export default function App() {
   // const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export default function App() {
 
   return (
     <Router>
-      <div>
+      <Container maxWidth="md">
         <MenuHeader />
         <hr />
         <Switch>
@@ -38,8 +39,9 @@ export default function App() {
           <Route path="/recovery-send-code" component={RecoveryPassSendCode} />
           <Route path="/recovery-change-password" component={RecoveryPassChangePass} />
           <Route path="/menu-account" component={MenuAccount} />
+          <Route path="/account-settings" component={AccountSettings} />
         </Switch>
-      </div>
+      </Container>
     </Router>
   );
 }

@@ -1,7 +1,7 @@
 import { TextField } from '@material-ui/core';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {inputSendCodeAction, inputSendCodeResetAction} from '../../actions/actions';
+import { inputSendCodeAction, inputSendCodeResetAction } from '../../actions/actions';
 
 function inputFocus(node) {
   node.focus();
