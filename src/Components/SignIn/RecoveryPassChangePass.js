@@ -57,6 +57,7 @@ export default function RecoveryPassChangePass() {
           handleFormValues={handleFormValues}
           handleClickShowPassword={handleClickShowPassword}
         />
+        <br/>
         <InputChangePassword
           inputLabel="Confirm new password"
           name="inputConfirmPassword"

@@ -8,42 +8,18 @@ import SignUp from './Pages/SignUp';
 import RecoveryPassSendEmail from './Components/SignIn/RecoveryPassSendEmail';
 import RecoveryPassSendCode from './Components/SignIn/RecoveryPassSendCode';
 import RecoveryPassChangePass from './Components/SignIn/RecoveryPassChangePass';
-import MenuAccount from './Pages/MenuAccount';
+import MenuAccount from './Components/MenuHeader/MenuAccount';
+import { Box, Button } from '@material-ui/core';
+import MenuHeader from './Pages/MenuHeader';
 
 export default function App() {
   // const dispatch = useDispatch();
   const isSignInRedux = useSelector((state) => state.authorization.isSignIn);
 
-  console.log('rendering: App:', isSignInRedux);
   return (
     <Router>
       <div>
-        <Link className="a" to="/">
-          InpLAce
-        </Link>
-        <Link className="a" to="/gallery">
-          Video gallery
-        </Link>
-        <Link className="a" to="/about">
-          About us
-        </Link>
-        <Link className="a" to="/faq">
-          FAQ
-        </Link>
-        <Link className="a" to="/contact">
-          Contact us
-        </Link>
-        {isSignInRedux || (
-          <Link className="a" to="/signup">
-            <button>Sign up</button>
-          </Link>
-        )}
-        {isSignInRedux || (
-          <Link className="a" to="/signin">
-            <button>Sign in</button>
-          </Link>
-        )}
-        {isSignInRedux && <MenuAccount />}
+        <MenuHeader />
         <hr />
         <Switch>
           <Route exact path="/">

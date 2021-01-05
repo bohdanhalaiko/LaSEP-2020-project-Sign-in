@@ -6,7 +6,8 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Menu } from '@material-ui/core';
+import { Box, Menu } from '@material-ui/core';
+import { FaAngleDown, FaUserCircle } from 'react-icons/fa';
 
 export default function MenuAccount() {
   const [open, setOpen] = useState(false);
@@ -22,29 +23,36 @@ export default function MenuAccount() {
 
   return (
     <div className="menu-account">
-      <div>
-        <Button
-          ref={anchorRef}
-          // aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          Menu Account
-        </Button>
+      <Box component="span" m={2}>
+        <Box component="span">
+          <Box component="span" m={1}>
+            <FaUserCircle size="1.5em" />
+          </Box>
+          <Button
+            ref={anchorRef}
+            // aria-controls={open ? 'menu-list-grow' : undefined}
+            aria-haspopup="true"
+            onClick={handleToggle}
+          >
+            Menu Account
+            <FaAngleDown size="1.1em" />
+          </Button>
+        </Box>
+
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           <Paper>
             <ClickAwayListener onClickAway={handleClose}>
               <div>
                 <MenuItem onClick={handleClose}>Account settings</MenuItem>
                 <MenuItem onClick={handleClose}>Support</MenuItem>
-                <Link to="/signout">
+                <Link className="a" to="/signout">
                   <MenuItem onClick={handleClose}>Sign out</MenuItem>
                 </Link>
               </div>
             </ClickAwayListener>
           </Paper>
         </Popper>
-      </div>
+      </Box>
     </div>
   );
 }
